@@ -1,32 +1,42 @@
-import React from 'react';
-
+import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 function Navbar() {
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button className="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link
+                            to="/"
+                            className={window.location.pathname === "/" || window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                        >
+                            About Me
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                            to="/portfolio"
+                            className= {window.location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}
+                        >
+                            Portfolio
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                            to="/contact"
+                            className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
+                        >
+                            Contact Me
+                        </Link>
+                    </li>
+                </ul>
             </div>
         </nav>
-    )
+    );
 }
-
 export default Navbar;
