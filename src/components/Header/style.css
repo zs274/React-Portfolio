@@ -1,11 +1,11 @@
 .hero {
-    height: 500px;
+    /* height: 200px; */
     background-size: cover;
     background-position: center;
     position: relative;
   }
   
-  .hero::after {
+  /* .hero::after {
     content: "";
     display: block;
     opacity: .4;
@@ -15,20 +15,21 @@
     left: 0;
     right: 0;
     background: black;
-  }
+  } */ */
   
   .hero * {
     position: relative;
     z-index: 2;
   }
   
-  .hero h1, .hero h2 {
-    color: white;
-  }
-  
   .hero h1 {
+    color: white;
     font-size: 60px;
     padding-top: 140px;
     margin-top: 0;
+    padding-bottom: 50px;
   }
   
+  #about {
+    text-align: center;
+  }

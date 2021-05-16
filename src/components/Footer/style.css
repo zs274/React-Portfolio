@@ -1,0 +1,14 @@
+.footer {
+    min-height: 35px;
+    background: #E5E5E5;
+    position: sticky;
+  }
+  
+  .footer span {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 10px;
+    padding: 3px;
+  }
+  
