@@ -1,42 +1,48 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import "./style.css";
+
+// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
-    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button className="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <Link
-                            to="/"
-                            className={window.location.pathname === "/" || window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                        >
-                            About Me
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link
-                            to="/portfolio"
-                            className= {window.location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}
-                        >
-                            Portfolio
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link
-                            to="/contact"
-                            className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
-                        >
-                            Contact Me
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    );
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Link className="navbar-brand" to="/">
+        Zarin Salim
+      </Link>
+      <div>
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link
+              to="/"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "/about"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/portfolio"
+              className={window.location.pathname === "/portfolio" ? "nav-link active" : "nav-link"}
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/contact"
+              className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
+
 export default Navbar;
